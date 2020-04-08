@@ -1,7 +1,7 @@
-require('./assets/scss/_main.scss');
-
 import Vue from 'vue'
 import App from './App.vue'
+import '@/assets/scss/_main.scss'
+import '@/assets/tailwind.css'
 
 Vue.config.productionTip = false
 
