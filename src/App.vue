@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
+  <div class="min-h-screen min-w-screen bg-porcelain">
     <main-page />
   </div>
 </template>
 
 <script>
-import MainPage from './pages/MainPage';
+import MainPage from './pages/MainPage'
 
 export default {
   name: 'App',

@@ -1,0 +1,74 @@
+{
+  "name": "Nico Limbara",
+  "location": "North Sumatra, Indonesia",
+  "email": "limbaranico@yahoo.com",
+  "github": "limbara",
+  "github_link": "https://github.com/limbara",
+  "linkedin": "Nico Lim",
+  "linkedin_link": "https://id.linkedin.com/in/nico-lim-740056130",
+  "position": "Web Developer",
+  "about_me": "Web Developer with over 2 years experience, i put on my 100% effort into what i do and work hard to gain what i want. I'm currently still learing on to improve in web development.",
+  "photo": "./me.jpg",
+  "skills": [
+    {
+      "name": "HTML",
+      "value": 80
+    },
+    {
+      "name": "CSS",
+      "value": 80
+    },
+    {
+      "name": "PHP",
+      "value": 80
+    },
+    {
+      "name": "Javascript",
+      "value": 80
+    },
+    {
+      "name": "MYSQL",
+      "value": 60
+    },
+    {
+      "name": "SASS",
+      "value": 70
+    },
+    {
+      "name": "Node.js",
+      "value": 70
+    },
+    {
+      "name": "Laravel",
+      "value": 70
+    },
+    {
+      "name": "Vue",
+      "value": 70
+    }
+  ],
+  "experiences": [
+    {
+      "from": "June 2019",
+      "to": "Present",
+      "position": "Back-End Developer",
+      "location": "Dealjava",
+      "description": "Me and my friend was working to move dealjava' API from CI to Laravel Lumen in the early days and fixing bugs. Now we are working on a new Project called DIYO."
+    },
+    {
+      "from": "October 2017",
+      "to": "June 2019",
+      "position": "Front-End Developer",
+      "location": "Dealjava",
+      "description": "I worked on dealjava.com desktop and mobile interface. when i first came to work here, i had the chance to build the website from scratch because dealjava had a new design. The desktop and mobile site was built with Vue on a different codebase. Also work on features and fix bugs."
+    }
+  ],
+  "educations": [
+    {
+      "from": "September 2013",
+      "to": "September 2017",
+      "location": "Mikroskil",
+      "description": "Bachelor of Computer Science"
+    }
+  ]
+}
