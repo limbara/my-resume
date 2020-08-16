@@ -9,22 +9,42 @@
           </div>
           <div class="flex flex-wrap py-2">
             <p class="button-icon">
-              <font-awesome-icon :icon="['fas','map-marker-alt']" class="button-icon__icon" />
+              <font-awesome-icon
+                :icon="['fas', 'map-marker-alt']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ location }}</span>
             </p>
 
             <a class="button-icon button-icon--link" :href="'mailto: ' + email">
-              <font-awesome-icon :icon="['fas','envelope']" class="button-icon__icon" />
+              <font-awesome-icon
+                :icon="['fas', 'envelope']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ email }}</span>
             </a>
 
-            <a class="button-icon button-icon--link" :href="github_link" target="_blank">
-              <font-awesome-icon :icon="['fab','github']" class="button-icon__icon" />
+            <a
+              class="button-icon button-icon--link"
+              :href="github_link"
+              target="_blank"
+            >
+              <font-awesome-icon
+                :icon="['fab', 'github']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ github }}</span>
             </a>
 
-            <a class="button-icon button-icon--link" :href="linkedin_link" target="_blank">
-              <font-awesome-icon :icon="['fab','linkedin']" class="button-icon__icon" />
+            <a
+              class="button-icon button-icon--link"
+              :href="linkedin_link"
+              target="_blank"
+            >
+              <font-awesome-icon
+                :icon="['fab', 'linkedin']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ linkedin }}</span>
             </a>
           </div>
@@ -38,9 +58,9 @@
             :name="name"
             :src="this.photo ? this.photo : ''"
             :style="{
-          'width': 'inherit',
-          'height': 'inherit'
-        }"
+              width: 'inherit',
+              height: 'inherit',
+            }"
           ></avatar>
         </div>
 
@@ -50,14 +70,11 @@
           <div class="heading__wrapper heading__wrapper--white">
             <h2 class="heading heading--white">Skills</h2>
           </div>
-          <div class="mt-4">
+          <div class="mt-4 flex flex-wrap">
             <template v-for="(skill, index) in skills">
-              <div class="skill-set" :key="index">
-                <span class="skill-set__name">{{ skill.name }}</span>
-                <div class="skill-set__value">
-                  <progress-bar :val="skill.value" size="large" bar-color="#79bac1"></progress-bar>
-                </div>
-              </div>
+              <span class="skill-pill" :key="index">
+                {{ skill }}
+              </span>
             </template>
           </div>
         </section>
@@ -73,22 +90,42 @@
           </div>
           <div class="flex flex-wrap py-2">
             <p class="button-icon">
-              <font-awesome-icon :icon="['fas','map-marker-alt']" class="button-icon__icon" />
+              <font-awesome-icon
+                :icon="['fas', 'map-marker-alt']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ location }}</span>
             </p>
 
             <a class="button-icon button-icon--link" :href="'mailto: ' + email">
-              <font-awesome-icon :icon="['fas','envelope']" class="button-icon__icon" />
+              <font-awesome-icon
+                :icon="['fas', 'envelope']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ email }}</span>
             </a>
 
-            <a class="button-icon button-icon--link" :href="github_link" target="_blank">
-              <font-awesome-icon :icon="['fab','github']" class="button-icon__icon" />
+            <a
+              class="button-icon button-icon--link"
+              :href="github_link"
+              target="_blank"
+            >
+              <font-awesome-icon
+                :icon="['fab', 'github']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ github }}</span>
             </a>
 
-            <a class="button-icon button-icon--link" :href="linkedin_link" target="_blank">
-              <font-awesome-icon :icon="['fab','linkedin']" class="button-icon__icon" />
+            <a
+              class="button-icon button-icon--link"
+              :href="linkedin_link"
+              target="_blank"
+            >
+              <font-awesome-icon
+                :icon="['fab', 'linkedin']"
+                class="button-icon__icon"
+              />
               <span class="button-icon__text">{{ linkedin }}</span>
             </a>
           </div>
@@ -99,10 +136,14 @@
             <h2 class="heading">Experience</h2>
           </div>
           <timeline>
-            <template v-for="(experience,index) in experiences">
-              <timeline-content :from="experience.from" :to="experience.to" :key="index">
-                <p>{{ experience.position}} @ {{ experience.location }}</p>
-                <p>{{ experience.description}}</p>
+            <template v-for="(experience, index) in experiences">
+              <timeline-content
+                :from="experience.from"
+                :to="experience.to"
+                :key="index"
+              >
+                <p>{{ experience.position }} @ {{ experience.location }}</p>
+                <p>{{ experience.description }}</p>
               </timeline-content>
             </template>
           </timeline>
@@ -114,8 +155,12 @@
           </div>
           <timeline>
             <template v-for="(education, index) in educations">
-              <timeline-content :from="education.from" :to="education.to" :key="index">
-                <p>{{ education.location }}, {{ education.description}}</p>
+              <timeline-content
+                :from="education.from"
+                :to="education.to"
+                :key="index"
+              >
+                <p>{{ education.location }}, {{ education.description }}</p>
               </timeline-content>
             </template>
           </timeline>
@@ -129,7 +174,6 @@
 import Avatar from "./../components/Avatar";
 import Timeline from "./../components/Timeline/Timeline";
 import TimelineContent from "./../components/Timeline/TimelineContent";
-import ProgressBar from "vue-simple-progress";
 
 export default {
   name: "main-page",
@@ -137,7 +181,6 @@ export default {
     Avatar,
     Timeline,
     TimelineContent,
-    ProgressBar
   },
   mounted: function() {
     this.loadJsonFile();
@@ -156,7 +199,7 @@ export default {
       aboutme: "",
       skills: [],
       experiences: [],
-      educations: []
+      educations: [],
     };
   },
   methods: {
@@ -175,8 +218,8 @@ export default {
       this.skills = jsonFile.skills;
       this.experiences = jsonFile.experiences;
       this.educations = jsonFile.educations;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -247,21 +290,20 @@ section {
   }
 }
 
-.skill-set {
-  @apply w-full;
-  @apply text-porcelain;
+.skill-pill {
+  @apply rounded-full;
   @apply py-2;
-  @apply my-1;
-  @apply flex;
-  @apply items-center;
+  @apply px-4;
+  @apply bg-white;
+  @apply text-calypso;
+  @apply inline-block;
+  @apply text-sm;
+  @apply font-semibold;
+  @apply mr-2;
+  @apply mb-2;
 
-  &__name {
-    @apply text-sm;
-    @apply w-1/3;
-  }
-
-  &__value {
-    @apply w-2/3;
+  &:last-child {
+    @apply mr-0;
   }
 }
 

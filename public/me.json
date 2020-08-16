@@ -10,42 +10,7 @@
   "about_me": "Web Developer with over 2 years experience, i put on my 100% effort into what i do and work hard to gain what i want. I'm currently still learing on to improve in web development.",
   "photo": "./me.jpg",
   "skills": [
-    {
-      "name": "HTML",
-      "value": 80
-    },
-    {
-      "name": "CSS",
-      "value": 80
-    },
-    {
-      "name": "PHP",
-      "value": 80
-    },
-    {
-      "name": "Javascript",
-      "value": 80
-    },
-    {
-      "name": "MYSQL",
-      "value": 60
-    },
-    {
-      "name": "SASS",
-      "value": 70
-    },
-    {
-      "name": "Node.js",
-      "value": 70
-    },
-    {
-      "name": "Laravel",
-      "value": 70
-    },
-    {
-      "name": "Vue",
-      "value": 70
-    }
+    "HTML5", "CSS3", "SCSS", "Javascript", "PHP", "NodeJS", "Jquery", "VueJS", "React", "Laravel", "MYSQL", "Redis", "Firebase", "MongoDB", "RESTful API", "Database Design"
   ],
   "experiences": [
     {
