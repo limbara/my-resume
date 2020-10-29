@@ -17,7 +17,7 @@ export default {
     @apply m-1;
     @apply p-1;
 
-    &::after {
+    &::before {
       content: '';
       @apply absolute;
       @apply bg-calypso;
