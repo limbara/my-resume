@@ -5,11 +5,11 @@ import '@/assets/scss/_main.scss'
 import '@/assets/tailwind.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faMapMarkerAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faEnvelope, faMapMarkerAlt, faGithub, faLinkedin)
+library.add(faEnvelope, faMapMarkerAlt, faGithub, faLinkedin, faLink)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

@@ -143,7 +143,7 @@
                 :key="index"
               >
                 <p>{{ experience.position }} @ {{ experience.location }}</p>
-                <p>{{ experience.description }}</p>
+                <div v-html="experience.description"></div>
               </timeline-content>
             </template>
           </timeline>
@@ -165,6 +165,19 @@
             </template>
           </timeline>
         </section>
+
+        <section>
+          <div class="heading__wrapper">
+            <h2 class="heading">Projects</h2>
+          </div>
+          <div class="flex m-2 p-3 flex-wrap">
+            <project-card
+              v-for="(project, index) in projects"
+              :key="index"
+              v-bind="project"
+            />
+          </div>
+        </section>
       </div>
     </div>
   </main>
@@ -174,6 +187,7 @@
 import Avatar from "./../components/Avatar";
 import Timeline from "./../components/Timeline/Timeline";
 import TimelineContent from "./../components/Timeline/TimelineContent";
+import ProjectCard from "./../components/ProjectCard";
 
 export default {
   name: "main-page",
@@ -181,6 +195,7 @@ export default {
     Avatar,
     Timeline,
     TimelineContent,
+    ProjectCard,
   },
   mounted: function() {
     this.loadJsonFile();
@@ -200,6 +215,7 @@ export default {
       skills: [],
       experiences: [],
       educations: [],
+      projects: [],
     };
   },
   methods: {
@@ -218,6 +234,7 @@ export default {
       this.skills = jsonFile.skills;
       this.experiences = jsonFile.experiences;
       this.educations = jsonFile.educations;
+      this.projects = jsonFile.projects;
     },
   },
 };
