@@ -8,7 +8,7 @@
   "linkedin_link": "https://id.linkedin.com/in/nico-lim-740056130",
   "position": "Web Developer",
   "about_me": "Web Developer with over 3 years experience and a demonstrated history of working in the E-commerce industry. Skilled in Vue.js, PHP, jQuery, HTML, and JavaScript. Strong engineering professional graduated from mikroskil. I'm still learning on to improve in web development.",
-  "photo": "/me.jpg",
+  "photo": "./me.jpg",
   "skills": [
     "HTML5",
     "CSS3",
