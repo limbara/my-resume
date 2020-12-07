@@ -70,6 +70,18 @@
       "type": "Personal Project",
       "link": "https://simple-chat-client-react.herokuapp.com",
       "description": "A Simple Chat Application made for the purpose of learning React.js & Web Socket"
+    },
+    {
+      "title": "Diyo API",
+      "type" : "Company Project",
+      "link" : "https://diyo.app",
+      "description": "Online Food Ordering App"
+    },
+    {
+      "title": "Dealjava",
+      "type" : "Company Project",
+      "link" : "https://dealjava.com",
+      "description": "Voucher & Promo Web App"
     }
   ]
 }
