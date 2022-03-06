@@ -22,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Deploy To Github Pages
+change deploy.sh git address to your project address & run script deploy.sh
+```
+./deploy.sh
+```
