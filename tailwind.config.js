@@ -17,5 +17,5 @@ module.exports = {
   },
   variants: {},
   plugins: [],
-  purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
+  content: ['./public/**/*.html', './src/**/*.vue'],
 }
