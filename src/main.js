@@ -8,6 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMapMarkerAlt, faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import './assets/tailwind.css'
 
 library.add(faEnvelope, faMapMarkerAlt, faGithub, faLinkedin, faLink)
 
