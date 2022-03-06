@@ -7,7 +7,7 @@
   "linkedin": "linkedin.com/in/nico-lim-740056130",
   "linkedin_link": "https://id.linkedin.com/in/nico-lim-740056130",
   "position": "Web Developer",
-  "about_me": "Web Developer with over 3 years experience and a demonstrated history of working in the E-commerce industry. Skilled in Vue.js, PHP, jQuery, HTML, and JavaScript. Strong engineering professional graduated from mikroskil. I'm still learning on to improve in web development.",
+  "about_me": "Web Developer with over 4 years experience and a demonstrated history of working in the E-commerce industry. Skilled in Vue.js, PHP, jQuery, HTML, and JavaScript. Strong engineering professional graduated from mikroskil. I'm still learning on to improve in web development.",
   "photo": "./me.jpg",
   "skills": [
     "HTML5",
@@ -29,8 +29,15 @@
   ],
   "experiences": [
     {
-      "from": "Aug 2019",
+      "from": "September 2021",
       "to": "Present",
+      "position": "Software Engineer",
+      "location": "PT Nextbase Ventura Global",
+      "description": "<ul><li>Developed client's Shopify app project</li><li>Developed data analytics web app</li></ul>"
+    },
+    {
+      "from": "Aug 2019",
+      "to": "September 2021",
       "position": "Back-End Developer",
       "location": "diyo.app",
       "description": "<ul><li>Designing database throughout development</li><li>Developing API for user and merchant app</li><li>Implementing 3rd party API</li><li>Built reusable code and libraries</li></ul>"
@@ -62,7 +69,7 @@
     {
       "title": "Vue Time Date Range Picker",
       "type": "Open Source Project",
-      "link": "https://github.com/limbara/vue-time-date-range-picker",
+      "link": "https://www.npmjs.com/package/vue-time-date-range-picker",
       "description": "A Vue Component made for picking date and time"
     },
     {
