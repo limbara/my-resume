@@ -2,69 +2,80 @@
   <main class="main-page">
     <div class="main-page__left">
       <div class="main-page__left__box">
-        <section class="profile__left">
+        <section>
           <div class="heading__wrapper heading__wrapper--white">
-            <h1 class="heading heading--name">{{ name }}</h1>
-            <h2 class="heading">{{ position }}</h2>
+            <h1 class="heading heading--white heading--name">{{ name }}</h1>
+            <h2 class="heading heading--white">{{ position }}</h2>
           </div>
-          <div class="flex flex-wrap py-2">
-            <p class="button-icon">
+
+          <div
+            v-if="name"
+            class="mx-auto w-32 h-32 sm:w-28 sm:h-28 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44"
+          >
+            <avatar
+              :name="name"
+              :src="this.photo ? this.photo : ''"
+              :style="{
+                width: 'inherit',
+                height: 'inherit',
+              }"
+            ></avatar>
+          </div>
+
+          <p class="text-justify esm:p-2 md:p-2 text-porcelain">
+            {{ summary }}
+          </p>
+        </section>
+
+        <section>
+          <div class="heading__wrapper heading__wrapper--white">
+            <h2 class="heading heading--white">Contacts</h2>
+          </div>
+          <div class="contacts">
+            <p class="contacts__item">
               <font-awesome-icon
                 :icon="['fas', 'map-marker-alt']"
-                class="button-icon__icon"
+                class="contacts__icon"
               />
-              <span class="button-icon__text">{{ location }}</span>
+              <span class="contacts__text">{{ location }}</span>
             </p>
 
-            <a class="button-icon button-icon--link" :href="'mailto: ' + email">
+            <a
+              class="contacts__item contacts__item--link"
+              :href="'mailto: ' + email"
+            >
               <font-awesome-icon
                 :icon="['fas', 'envelope']"
-                class="button-icon__icon"
+                class="contacts__icon"
               />
-              <span class="button-icon__text">{{ email }}</span>
+              <span class="contacts__text">{{ email }}</span>
             </a>
 
             <a
-              class="button-icon button-icon--link"
+              class="contacts__item contacts__item--link"
               :href="github_link"
               target="_blank"
             >
               <font-awesome-icon
                 :icon="['fab', 'github']"
-                class="button-icon__icon"
+                class="contacts__icon"
               />
-              <span class="button-icon__text">{{ github }}</span>
+              <span class="contacts__text">{{ github }}</span>
             </a>
 
             <a
-              class="button-icon button-icon--link"
+              class="contacts__item contacts__item--link"
               :href="linkedin_link"
               target="_blank"
             >
               <font-awesome-icon
                 :icon="['fab', 'linkedin']"
-                class="button-icon__icon"
+                class="contacts__icon"
               />
-              <span class="button-icon__text">{{ linkedin }}</span>
+              <span class="contacts__text">{{ linkedin }}</span>
             </a>
           </div>
         </section>
-
-        <div
-          v-if="name"
-          class="mx-auto w-48 h-48 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-64 xl:h-64"
-        >
-          <avatar
-            :name="name"
-            :src="this.photo ? this.photo : ''"
-            :style="{
-              width: 'inherit',
-              height: 'inherit',
-            }"
-          ></avatar>
-        </div>
-
-        <p class="text-justify esm:p-3 md:p-3 text-porcelain">{{ aboutme }}</p>
 
         <section>
           <div class="heading__wrapper heading__wrapper--white">
@@ -78,59 +89,43 @@
             </template>
           </div>
         </section>
+
+        <section>
+          <div class="heading__wrapper heading__wrapper--white">
+            <h2 class="heading heading--white">Education</h2>
+          </div>
+          <timeline class="timeline--white">
+            <template v-for="(education, index) in educations">
+              <timeline-content
+                class="timeline-content--white"
+                :from="education.from"
+                :to="education.to"
+                :key="index"
+              >
+                <p>{{ education.location }}, {{ education.description }}</p>
+              </timeline-content>
+            </template>
+          </timeline>
+        </section>
+
+        <section>
+          <div class="heading__wrapper heading__wrapper--white">
+            <h2 class="heading heading--white">Certificates</h2>
+          </div>
+          <div class="flex m-1 p-1 flex-wrap">
+            <certificate-card
+              class="certificate-card--white"
+              v-for="(certificate, index) in certificates"
+              :key="index"
+              v-bind="certificate"
+            />
+          </div>
+        </section>
       </div>
     </div>
 
     <div class="main-page__right">
       <div class="main-page__right__box">
-        <section class="profile__right">
-          <div class="heading__wrapper">
-            <h1 class="heading heading--name">{{ name }}</h1>
-            <h2 class="heading">{{ position }}</h2>
-          </div>
-          <div class="flex flex-wrap py-2">
-            <p class="button-icon">
-              <font-awesome-icon
-                :icon="['fas', 'map-marker-alt']"
-                class="button-icon__icon"
-              />
-              <span class="button-icon__text">{{ location }}</span>
-            </p>
-
-            <a class="button-icon button-icon--link" :href="'mailto: ' + email">
-              <font-awesome-icon
-                :icon="['fas', 'envelope']"
-                class="button-icon__icon"
-              />
-              <span class="button-icon__text">{{ email }}</span>
-            </a>
-
-            <a
-              class="button-icon button-icon--link"
-              :href="github_link"
-              target="_blank"
-            >
-              <font-awesome-icon
-                :icon="['fab', 'github']"
-                class="button-icon__icon"
-              />
-              <span class="button-icon__text">{{ github }}</span>
-            </a>
-
-            <a
-              class="button-icon button-icon--link"
-              :href="linkedin_link"
-              target="_blank"
-            >
-              <font-awesome-icon
-                :icon="['fab', 'linkedin']"
-                class="button-icon__icon"
-              />
-              <span class="button-icon__text">{{ linkedin }}</span>
-            </a>
-          </div>
-        </section>
-
         <section>
           <div class="heading__wrapper">
             <h2 class="heading">Experience</h2>
@@ -151,26 +146,9 @@
 
         <section>
           <div class="heading__wrapper">
-            <h2 class="heading">Education</h2>
-          </div>
-          <timeline>
-            <template v-for="(education, index) in educations">
-              <timeline-content
-                :from="education.from"
-                :to="education.to"
-                :key="index"
-              >
-                <p>{{ education.location }}, {{ education.description }}</p>
-              </timeline-content>
-            </template>
-          </timeline>
-        </section>
-
-        <section>
-          <div class="heading__wrapper">
             <h2 class="heading">Projects</h2>
           </div>
-          <div class="flex m-2 p-3 flex-wrap">
+          <div class="flex m-1 p-1 flex-wrap">
             <project-card
               v-for="(project, index) in projects"
               :key="index"
@@ -184,43 +162,46 @@
 </template>
 
 <script>
-import Avatar from "./../components/Avatar";
-import Timeline from "./../components/Timeline/Timeline";
-import TimelineContent from "./../components/Timeline/TimelineContent";
-import ProjectCard from "./../components/ProjectCard";
+import Avatar from './../components/Avatar';
+import Timeline from './../components/Timeline/Timeline';
+import TimelineContent from './../components/Timeline/TimelineContent';
+import ProjectCard from './../components/ProjectCard';
+import CertificateCard from './../components/CertificateCard.vue';
 
 export default {
-  name: "main-page",
+  name: 'main-page',
   components: {
     Avatar,
     Timeline,
     TimelineContent,
     ProjectCard,
+    CertificateCard,
   },
-  mounted: function() {
+  mounted: function () {
     this.loadJsonFile();
   },
-  data: function() {
+  data: function () {
     return {
-      name: "",
-      position: "",
-      location: "",
-      photo: "",
-      email: "",
-      github: "",
-      github_link: "",
-      linkedin: "",
-      linkedin_link: "",
-      aboutme: "",
+      name: '',
+      position: '',
+      location: '',
+      summary: '',
+      photo: '',
+      email: '',
+      github: '',
+      github_link: '',
+      linkedin: '',
+      linkedin_link: '',
       skills: [],
       experiences: [],
       educations: [],
       projects: [],
+      certificates: [],
     };
   },
   methods: {
     loadJsonFile() {
-      let jsonFile = require("./../../public/me.json");
+      let jsonFile = require('./../../public/me.json');
       this.name = jsonFile.name;
       this.position = jsonFile.position;
       this.location = jsonFile.location;
@@ -230,11 +211,12 @@ export default {
       this.github_link = jsonFile.github_link;
       this.linkedin = jsonFile.linkedin;
       this.linkedin_link = jsonFile.linkedin_link;
-      this.aboutme = jsonFile.about_me;
+      this.summary = jsonFile.summary;
       this.skills = jsonFile.skills;
       this.experiences = jsonFile.experiences;
       this.educations = jsonFile.educations;
       this.projects = jsonFile.projects;
+      this.certificates = jsonFile.certificates;
     },
   },
 };
@@ -247,7 +229,7 @@ p {
 }
 
 section {
-  @apply my-3;
+  @apply my-2.5;
   @apply mx-1;
 }
 
@@ -264,6 +246,7 @@ section {
   }
 
   &__wrapper {
+    @apply mb-2;
     @apply pb-2;
     @apply border-b-4;
     @apply border-calypso;
@@ -274,26 +257,24 @@ section {
   }
 }
 
-.profile {
-  &__left {
-    @apply text-porcelain;
-  }
-
-  &__right {
-    @apply text-gray-700;
-  }
-}
-
-.button-icon {
+.contacts {
   @apply flex;
+  @apply flex-row;
+  @apply flex-wrap;
   @apply py-2;
-  @apply px-1;
-  @apply w-1/2;
 
-  &--link {
-    @apply cursor-pointer;
-    &:hover {
-      @apply text-gray-800;
+  &__item {
+    @apply flex;
+    @apply py-2;
+    @apply px-1;
+    @apply w-1/2;
+    @apply text-porcelain;
+
+    &--link {
+      @apply cursor-pointer;
+      &:hover {
+        @apply text-glacier;
+      }
     }
   }
 
@@ -303,14 +284,15 @@ section {
 
   &__text {
     @apply ml-2;
-    @apply text-xs;
+    @apply text-sm;
+    @apply break-all;
   }
 }
 
 .skill-pill {
   @apply rounded-full;
-  @apply py-2;
-  @apply px-4;
+  @apply py-1.5;
+  @apply px-3;
   @apply bg-white;
   @apply text-calypso;
   @apply inline-block;
@@ -343,25 +325,13 @@ section {
 .main-page__left__box {
   @apply w-full;
   @apply ml-0;
-  @apply p-5;
+  @apply p-4;
 }
 
 .main-page__right__box {
   @apply w-full;
   @apply mr-0;
-  @apply p-5;
-}
-
-@screen esm {
-  .profile {
-    &__left {
-      @apply block;
-    }
-
-    &__right {
-      @apply hidden;
-    }
-  }
+  @apply p-4;
 }
 
 @screen sm {
@@ -376,8 +346,45 @@ section {
       @apply text-5xl;
     }
   }
+}
 
-  .button-icon {
+@screen md {
+  section {
+    @apply my-3;
+  }
+
+  .main-page {
+    @apply flex-row;
+
+    &__left {
+      @apply w-2/5;
+      @apply min-h-screen;
+    }
+
+    &__right {
+      @apply w-3/5;
+      @apply min-h-screen;
+    }
+  }
+
+  .main-page__left__box {
+    @apply ml-auto;
+    @apply p-4;
+  }
+
+  .main-page__right__box {
+    @apply mr-auto;
+    @apply p-4;
+  }
+
+  .contacts {
+    @apply flex-col;
+    @apply flex-nowrap;
+
+    &__item {
+      @apply w-full;
+    }
+
     &__icon {
       @apply text-2xl;
     }
@@ -386,46 +393,6 @@ section {
       @apply ml-3;
       @apply text-base;
     }
-  }
-}
-
-@screen md {
-  section {
-    @apply my-5;
-  }
-
-  .profile {
-    &__left {
-      @apply hidden;
-    }
-
-    &__right {
-      @apply block;
-    }
-  }
-
-  .main-page {
-    @apply flex-row;
-
-    &__left {
-      @apply w-1/3;
-      @apply min-h-screen;
-    }
-
-    &__right {
-      @apply w-2/3;
-      @apply min-h-screen;
-    }
-  }
-
-  .main-page__left__box {
-    @apply ml-auto;
-    @apply p-8;
-  }
-
-  .main-page__right__box {
-    @apply mr-auto;
-    @apply p-8;
   }
 }
 

@@ -13,17 +13,17 @@
 
 <script>
 export default {
-  name: "TimelineContent",
+  name: 'TimelineContent',
   props: {
     from: {
       required: true,
-      type: String
+      type: String,
     },
     to: {
       required: true,
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 };
 </script>
 
@@ -44,11 +44,11 @@ export default {
 .timeline-content {
   @apply relative;
   @apply w-full;
-  @apply p-3;
+  @apply p-2.5;
   @apply ml-1;
 
   &::before {
-    content: "";
+    content: '';
     @apply w-5;
     @apply h-5;
     @apply rounded-full;
@@ -58,14 +58,25 @@ export default {
     @apply absolute;
     @apply z-10;
     left: -0.75rem;
-    top: 1.5rem;
+    top: 1rem;
+  }
+
+  &--white {
+    .time__wrapper {
+      @apply text-porcelain;
+    }
+
+    &::before {
+      @apply border-porcelain;
+      @apply bg-calypso;
+    }
   }
 }
 
 @screen md {
   .timeline-content {
     @apply ml-3;
-    @apply p-5;
+    @apply p-2.5;
 
     &::before {
       @apply border-4;

@@ -1,35 +1,32 @@
 <template>
-  <a class="project-card" :href="link">
-    <div class="project-card__title-wrapper">
-      <h3 class="project-card__title">{{ title }} ({{ type }})</h3>
+  <a class="certificate-card" :href="link">
+    <div class="certificate-card__title-wrapper">
+      <h3 class="certificate-card__title">{{ title }}</h3>
       <font-awesome-icon
         :icon="['fas', 'link']"
-        class="project-card__link-icon"
+        class="certificate-card__link-icon"
       />
     </div>
-    <p class="project-card__description">{{ description }}</p>
-    <p class="project-card__tech-stack">Tech Stack : {{ tech_stack }}</p>
+    <p class="certificate-card__issued-at">Date : {{ issued_at }}</p>
   </a>
 </template>
 
 <script>
 export default {
-  name: 'ProjectCard',
+  name: 'CertificateCard',
   props: {
     title: String,
-    type: String,
-    description: String,
     link: {
       type: String,
       default: '',
     },
-    tech_stack: String,
+    issued_at: String,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.project-card {
+.certificate-card {
   @apply shadow-lg;
   @apply rounded;
   @apply inline-block;
@@ -41,13 +38,13 @@ export default {
   &:active {
     @apply cursor-pointer;
     @apply shadow;
-    @apply text-gray-900;
+    @apply text-glacier;
   }
 
   &:hover {
     @apply cursor-pointer;
     @apply shadow;
-    @apply text-gray-900;
+    @apply text-glacier;
   }
 
   &__title-wrapper {
@@ -59,13 +56,14 @@ export default {
     @apply text-lg;
   }
 
-  &__description {
-    @apply text-sm;
-  }
-
-  &__tech-stack {
+  &__issued-at {
     @apply text-xs;
     @apply p-1;
-}
+  }
+
+  &--white {
+    @apply bg-porcelain;
+    @apply text-calypso;
+  }
 }
 </style>
