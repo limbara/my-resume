@@ -87,6 +87,20 @@
       "tech_stack": "Javascript, React, Node.js, Websocket"
     },
     {
+      "title": "Simple Ethereum Smart Contract",
+      "type": "Personal Project",
+      "link": "https://github.com/limbara/Simple-Contract",
+      "description": "A Cli program that play around with ethereum smart contract that is running on local blockchain using Ganache.",
+      "tech_stack": "Javascript, Solidity"
+    },
+    {
+      "title": "Flutter Card Clock",
+      "type": "Personal Project",
+      "link": "https://github.com/limbara/flutter_card_clock/raw/master/card_clock.mp4",
+      "description": "An clock app that is made to participate in the Flutter Clock contest.",
+      "tech_stack": "Flutter"
+    },
+    {
       "title": "Diyo API",
       "type": "Company Project",
       "link": "https://diyo.app",
