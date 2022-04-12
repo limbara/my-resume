@@ -230,7 +230,7 @@ p {
 }
 
 section {
-  @apply my-2.5;
+  @apply my-2;
   @apply mx-1;
 }
 
@@ -328,13 +328,13 @@ section {
 .main-page__left__box {
   @apply w-full;
   @apply ml-0;
-  @apply p-4;
+  @apply p-2;
 }
 
 .main-page__right__box {
   @apply w-full;
   @apply mr-0;
-  @apply p-4;
+  @apply p-2;
 }
 
 @screen sm {
@@ -352,10 +352,6 @@ section {
 }
 
 @screen md {
-  section {
-    @apply my-3;
-  }
-
   .main-page {
     @apply flex-row;
 
@@ -372,12 +368,12 @@ section {
 
   .main-page__left__box {
     @apply ml-auto;
-    @apply p-4;
+    @apply p-2;
   }
 
   .main-page__right__box {
     @apply mr-auto;
-    @apply p-4;
+    @apply p-2;
   }
 
   .contacts {
