@@ -10,7 +10,8 @@
 
           <div
             v-if="name"
-            class="mx-auto w-32 h-32 sm:w-28 sm:h-28 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44"
+            class="float-left m-4 w-32 h-32 sm:w-28 sm:h-28 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44"
+            style="shape-outside: circle();"
           >
             <avatar
               :name="name"

@@ -1,62 +1,46 @@
 <template>
-  <div :class="`c-avatar ${getBg} text-white font-bold`" :style="`
+  <div
+    :class="`c-avatar text-white font-bold ${src ? '' : 'bg-bossanova'}`"
+    :style="`
     width: ${size}px;
     height: ${size}px;
-    background-image: url('${src}');
-    background-color: ${src ? 'transparent' : ''}
-  `">
+    shape-outside: circle();
+    ${src ? `background-image: url(${src})` : ''}
+    ${src ? 'background-color: transparent' : ''} 
+  `"
+  >
     <span class="c-avatar__initial" v-show="!src">{{ getInitial }}</span>
   </div>
-</template>  
+</template>
 
 <script>
 export default {
-  name: "Avatar",
+  name: 'Avatar',
   props: {
     name: {
       required: true,
-      type: String
+      type: String,
     },
     src: {
       required: false,
-      type: String
+      type: String,
     },
     size: {
       required: false,
       type: Number,
-      default: 50
-    }
+      default: 50,
+    },
   },
   computed: {
-    getInitial: function() {
+    getInitial: function () {
       return this.name
         .split(/\s|-/g)
-        .map(item => {
-          return item[0].toUpperCase()
+        .map((item) => {
+          return item[0].toUpperCase();
         })
-        .join("")
+        .join('');
     },
-    getBg: function() {
-      let bgs = [
-        "gray",
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "teal",
-        "blue",
-        "purple",
-        "indigo",
-        "pink"
-      ];
-      let lightness = ["500", "600", "700"]
-
-      let randomBgs = parseInt(this.name.length % bgs.length),
-        randomLightness = parseInt(this.name.length % lightness.length);
-
-      return `bg-${bgs[randomBgs]}-${lightness[randomLightness]}`
-    }
-  }
+  },
 };
 </script>
 
