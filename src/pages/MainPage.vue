@@ -291,7 +291,7 @@ section {
 }
 
 .skill-pill {
-  @apply rounded-full;
+  @apply rounded;
   @apply py-1.5;
   @apply px-3;
   @apply bg-white;
@@ -301,6 +301,8 @@ section {
   @apply font-semibold;
   @apply mr-2;
   @apply mb-2;
+  @apply whitespace-nowrap;
+
 
   &:last-child {
     @apply mr-0;
