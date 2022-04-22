@@ -28,7 +28,7 @@
           </p>
         </section>
 
-        <section>
+        <section class="clear-left">
           <div class="heading__wrapper heading__wrapper--white">
             <h2 class="heading heading--white">Contacts</h2>
           </div>
@@ -235,11 +235,11 @@ section {
 }
 
 .heading {
-  @apply text-2xl;
+  @apply text-xl;
   @apply font-bold;
 
   &--name {
-    @apply text-4xl;
+    @apply text-2xl;
   }
 
   &--white {
@@ -343,10 +343,10 @@ section {
   }
 
   .heading {
-    @apply text-3xl;
+    @apply text-2xl;
 
     &--name {
-      @apply text-5xl;
+      @apply text-3xl;
     }
   }
 }
@@ -398,7 +398,7 @@ section {
 @screen lg {
   .main-page__left__box,
   .main-page__right__box {
-    @apply w-3/4;
+    @apply w-5/6;
   }
 }
 </style>
