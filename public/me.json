@@ -73,6 +73,13 @@
       "tech_stack": "Javascript, Vue.js, Webpack, Sass, Travis CI/CD, Jest Unit Test"
     },
     {
+      "title": "Sort Visualizer",
+      "type": "Personal Project",
+      "link": "https://limbara.github.io/algo-visualizer/",
+      "description": "A Web application visualizing sorting algorithm",
+      "tech_stack": "Typescript, React.js, Sass"
+    },
+    {
       "title": "IDX Stock Watcher",
       "type": "Personal Project",
       "link": "https://idx-stock-watcher.herokuapp.com/",
