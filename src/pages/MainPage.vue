@@ -138,7 +138,8 @@
                 :to="experience.to"
                 :key="index"
               >
-                <p>{{ experience.position }} @ {{ experience.location }}</p>
+                <p v-if="experience.location_url">{{ experience.position }} @ <a class="text-calypso hover:text-glacier" :href="experience.location_url" target="_blank" rel="noopener noreferrer">{{ experience.location }}</a></p>
+                <p v-else>{{ experience.position }} @ {{ experience.location }}</p>
                 <div v-html="experience.description"></div>
               </timeline-content>
             </template>

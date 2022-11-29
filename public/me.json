@@ -3,7 +3,7 @@
   "location": "North Sumatra, Indonesia",
   "position": "Software Engineer",
   "photo": "./me.jpg",
-  "summary": "Detail-oriented Software Engineer with over 4 years experience and a demonstrated history of working in startup enviroment. Always eager to learn new things to keep up to date with the tech industry. Currently doing a bit of problem solving on Leetcode and focused on learning Golang, I'm open to learn to new tech skill to support my career.",
+  "summary": "Detail-oriented Software Engineer with over 5 years experience and a demonstrated history of working in startup enviroment. Always eager to learn new things to keep up to date with the tech industry. Currently doing a bit of problem solving on Leetcode and focused on learning Golang, I'm open to learn to new tech skill to support my career.",
   "email": "limbaranico@yahoo.com",
   "github": "github.com/limbara",
   "github_link": "https://github.com/limbara",
@@ -11,6 +11,7 @@
   "linkedin_link": "https://id.linkedin.com/in/nico-lim-740056130",
   "skills": [
     "Javascript/ES6",
+    "Java",
     "Go",
     "PHP",
     "MySQL",
@@ -28,31 +29,43 @@
   ],
   "experiences": [
     {
+      "from" : "July 2022",
+      "to" : "Present",
+      "position" :"Back-End Engineer",
+      "location" : "Ajaib - PT Harta Karunia Indonesia",
+      "location_url" : "https://ajaib.co.id",
+      "description" : "<ul><li>Responsible in maintaining and improving shared service performance</li><li>Developed and improve new Ajaib's internal tools to better serve customers</li></ul>"
+    },
+    {
       "from": "September 2021",
-      "to": "Present",
+      "to": "July 2022",
       "position": "Software Engineer",
       "location": "PT Nextbase Ventura Global",
+      "location_url" : "https://nextbase.co",
       "description": "<ul><li>Developed client's Shopify app project</li><li>Developed data analytics web app</li></ul>"
     },
     {
       "from": "Aug 2019",
       "to": "September 2021",
       "position": "Back-End Developer",
-      "location": "diyo.app",
+      "location": "Diyo - PT. DIYO Solusi Digital",
+      "location_url": "https://www.diyo.app",
       "description": "<ul><li>Designing database throughout development</li><li>Developing API for user and merchant app</li><li>Implementing 3rd party API</li><li>Built reusable code and libraries</li></ul>"
     },
     {
       "from": "June 2019",
       "to": "Aug 2019",
       "position": "Back-End Developer",
-      "location": "dealjava.com",
+      "location": "Dealjava - PT DIGITAL MEDIA GROUP",
+      "location_url" : "https://dealjava.com",
       "description": "<ul><li>Moving old framework codebase to a new codebase</li><li>Performing bug fixes</li></ul>"
     },
     {
       "from": "October 2017",
       "to": "June 2019",
       "position": "Front-End Developer",
-      "location": "dealjava.com",
+      "location": "Dealjava - PT DIGITAL MEDIA GROUP",
+      "location_url" : "https://dealjava.com",
       "description": "<ul><li>Developed and mantain customer facing website</li><li>Developed internal UI components</li><li>Implementing new features</li><li>Performing bug fixes</li><li>Improving website performance</li></ul>"
     }
   ],
@@ -106,20 +119,6 @@
       "link": "https://github.com/limbara/flutter_card_clock/raw/master/card_clock.mp4",
       "description": "An clock app that is made to participate in the Flutter Clock contest.",
       "tech_stack": "Flutter"
-    },
-    {
-      "title": "Diyo API",
-      "type": "Company Project",
-      "link": "https://diyo.app",
-      "description": "Online Food Ordering App",
-      "tech_stack": "Javascript, PHP, Laravel, Redis, MySQL, Firebase, Docker"
-    },
-    {
-      "title": "Dealjava",
-      "type": "Company Project",
-      "link": "https://dealjava.com",
-      "description": "Voucher & Promo Web App",
-      "tech_stack": "Javascript, PHP, Laravel, Redis, MySQL, Docker"
     }
   ],
   "certificates": [
