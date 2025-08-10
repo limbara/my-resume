@@ -10,7 +10,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "../../style.css";
+
 .timeline {
   @apply relative;
   @apply w-full;
@@ -27,7 +29,7 @@ export default {
     @apply z-0;
   }
 
-  &--white {
+  &.timeline--white {
     @apply text-porcelain;
 
     &::before {
@@ -36,7 +38,7 @@ export default {
   }
 }
 
-@screen md {
+@variant md {
   .timeline {
     @apply m-2;
     @apply p-1;

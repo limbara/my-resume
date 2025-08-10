@@ -1,13 +1,14 @@
 <template>
   <div
     :class="`c-avatar text-white font-bold ${src ? '' : 'bg-bossanova'}`"
-    :style="`
-    width: ${size}px;
-    height: ${size}px;
-    shape-outside: circle();
-    ${src ? `background-image: url(${src})` : ''}
-    ${src ? 'background-color: transparent' : ''} 
-  `"
+    :style="{
+      width: `${size}px`,
+      height: `${size}px`,
+      'shape-outside': 'circle()',
+      'background-image': src ? `url(${src})` : 'none',
+      'background-color': 'transparent' 
+    }
+  "
   >
     <span class="c-avatar__initial" v-show="!src">{{ getInitial }}</span>
   </div>
@@ -15,7 +16,7 @@
 
 <script>
 export default {
-  name: 'Avatar',
+  name: "Avatar",
   props: {
     name: {
       required: true,
@@ -38,13 +39,15 @@ export default {
         .map((item) => {
           return item[0].toUpperCase();
         })
-        .join('');
+        .join("");
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "../style.css";
+
 .c-avatar {
   font-family: inherit;
   display: flex;
@@ -56,10 +59,10 @@ export default {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
 
-  &__initial {
-    color: inherit;
-    font-size: inherit;
-  }
+.c-avatar__initial {
+  color: inherit;
+  font-size: inherit;
 }
 </style>

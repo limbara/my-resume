@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'TimelineContent',
+  name: "TimelineContent",
   props: {
     from: {
       required: true,
@@ -27,18 +27,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.time {
-  &__wrapper {
-    @apply text-calypso;
-    @apply w-full;
-    @apply flex;
-    @apply items-center;
-  }
-  &__text {
-    @apply text-xl;
-    @apply font-bold;
-  }
+<style scoped>
+@reference "../../style.css";
+
+.time__wrapper {
+  @apply text-calypso;
+  @apply w-full;
+  @apply flex;
+  @apply items-center;
+}
+.time__text {
+  @apply text-xl;
+  @apply font-bold;
 }
 
 .timeline-content {
@@ -48,7 +48,7 @@ export default {
   @apply ml-1;
 
   &::before {
-    content: '';
+    content: "";
     @apply w-5;
     @apply h-5;
     @apply rounded-full;
@@ -61,7 +61,7 @@ export default {
     top: 1rem;
   }
 
-  &--white {
+  &.timeline-content--white {
     .time__wrapper {
       @apply text-porcelain;
     }
@@ -73,7 +73,7 @@ export default {
   }
 }
 
-@screen md {
+@variant md {
   .timeline-content {
     @apply ml-3;
     @apply p-2.5;

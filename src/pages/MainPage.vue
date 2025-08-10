@@ -11,9 +11,10 @@
           <div
             v-if="name"
             class="float-left m-4 w-32 h-32 sm:w-28 sm:h-28 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44"
-            style="shape-outside: circle();"
+            style="shape-outside: circle()"
           >
             <avatar
+              :data-src="this.photo"
               :name="name"
               :src="this.photo ? this.photo : ''"
               :style="{
@@ -83,8 +84,8 @@
             <h2 class="heading heading--white">Skills</h2>
           </div>
           <div class="mt-4 flex flex-wrap">
-            <template v-for="(skill, index) in skills">
-              <span class="skill-pill" :key="index">
+            <template v-for="(skill, index) in skills" :key="index">
+              <span class="skill-pill">
                 {{ skill }}
               </span>
             </template>
@@ -96,12 +97,11 @@
             <h2 class="heading heading--white">Education</h2>
           </div>
           <timeline class="timeline--white">
-            <template v-for="(education, index) in educations">
+            <template v-for="(education, index) in educations" :key="index">
               <timeline-content
                 class="timeline-content--white"
                 :from="education.from"
                 :to="education.to"
-                :key="index"
               >
                 <p>{{ education.location }}, {{ education.description }}</p>
               </timeline-content>
@@ -132,14 +132,21 @@
             <h2 class="heading">Experience</h2>
           </div>
           <timeline>
-            <template v-for="(experience, index) in experiences">
-              <timeline-content
-                :from="experience.from"
-                :to="experience.to"
-                :key="index"
-              >
-                <p v-if="experience.location_url">{{ experience.position }} @ <a class="text-calypso hover:text-glacier" :href="experience.location_url" target="_blank" rel="noopener noreferrer">{{ experience.location }}</a></p>
-                <p v-else>{{ experience.position }} @ {{ experience.location }}</p>
+            <template v-for="(experience, index) in experiences" :key="index">
+              <timeline-content :from="experience.from" :to="experience.to">
+                <p v-if="experience.location_url">
+                  {{ experience.position }} @
+                  <a
+                    class="text-calypso hover:text-glacier"
+                    :href="experience.location_url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >{{ experience.location }}</a
+                  >
+                </p>
+                <p v-else>
+                  {{ experience.position }} @ {{ experience.location }}
+                </p>
                 <div v-html="experience.description"></div>
               </timeline-content>
             </template>
@@ -164,14 +171,25 @@
 </template>
 
 <script>
-import Avatar from './../components/Avatar';
-import Timeline from './../components/Timeline/Timeline';
-import TimelineContent from './../components/Timeline/TimelineContent';
-import ProjectCard from './../components/ProjectCard';
-import CertificateCard from './../components/CertificateCard.vue';
+import Avatar from "../components/Avatar.vue";
+import Timeline from "../components/Timeline/Timeline.vue";
+import TimelineContent from "../components/Timeline/TimelineContent.vue";
+import ProjectCard from "../components/ProjectCard.vue";
+import CertificateCard from "../components/CertificateCard.vue";
+
+function urlJoin(...parts) {
+  return parts
+    .map((part, i) => {
+      if (i === 0) {
+        return part.replace(/\/+$/, '');
+      }
+      return part.replace(/^\/+/, '');
+    })
+    .join('/');
+}
 
 export default {
-  name: 'main-page',
+  name: "main-page",
   components: {
     Avatar,
     Timeline,
@@ -184,16 +202,16 @@ export default {
   },
   data: function () {
     return {
-      name: '',
-      position: '',
-      location: '',
-      summary: '',
-      photo: '',
-      email: '',
-      github: '',
-      github_link: '',
-      linkedin: '',
-      linkedin_link: '',
+      name: "",
+      position: "",
+      location: "",
+      summary: "",
+      photo: "",
+      email: "",
+      github: "",
+      github_link: "",
+      linkedin: "",
+      linkedin_link: "",
       skills: [],
       experiences: [],
       educations: [],
@@ -202,13 +220,13 @@ export default {
     };
   },
   methods: {
-    loadJsonFile() {
-      let jsonFile = require('./../../public/me.json');
+    async loadJsonFile() {
+      let jsonFile = await import("../assets/me.json");
       this.name = jsonFile.name;
       this.position = jsonFile.position;
       this.location = jsonFile.location;
       this.email = jsonFile.email;
-      this.photo = jsonFile.photo;
+      this.photo = urlJoin(import.meta.env.BASE_URL, jsonFile.photo);
       this.github = jsonFile.github;
       this.github_link = jsonFile.github_link;
       this.linkedin = jsonFile.linkedin;
@@ -224,7 +242,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "../style.css";
+
 p {
   @apply text-sm;
   @apply font-inria;
@@ -239,23 +259,23 @@ section {
   @apply text-xl;
   @apply font-bold;
 
-  &--name {
+  &.heading--name {
     @apply text-2xl;
   }
 
-  &--white {
+  &.heading--white {
     @apply text-porcelain;
   }
+}
 
-  &__wrapper {
-    @apply mb-2;
-    @apply pb-2;
-    @apply border-b-4;
-    @apply border-calypso;
+.heading__wrapper {
+  @apply mb-2;
+  @apply pb-2;
+  @apply border-b-4;
+  @apply border-calypso;
 
-    &--white {
-      @apply border-porcelain;
-    }
+  &.heading__wrapper--white {
+    @apply border-porcelain;
   }
 }
 
@@ -264,31 +284,32 @@ section {
   @apply flex-row;
   @apply flex-wrap;
   @apply py-2;
+}
 
-  &__item {
-    @apply flex;
-    @apply py-2;
-    @apply px-1;
-    @apply w-1/2;
-    @apply text-porcelain;
+.contacts__item {
+  @apply flex;
+  @apply py-2;
+  @apply px-1;
+  @apply w-1/2;
+  @apply text-porcelain;
 
-    &--link {
-      @apply cursor-pointer;
-      &:hover {
-        @apply text-glacier;
-      }
+  &.contacts__item--link {
+    @apply cursor-pointer;
+
+    &:hover {
+      @apply text-glacier;
     }
   }
+}
 
-  &__icon {
-    @apply text-lg;
-  }
+.contacts__icon {
+  @apply text-lg;
+}
 
-  &__text {
-    @apply ml-2;
-    @apply text-sm;
-    @apply break-all;
-  }
+.contacts__text {
+  @apply ml-2;
+  @apply text-sm;
+  @apply break-all;
 }
 
 .skill-pill {
@@ -304,7 +325,6 @@ section {
   @apply mb-2;
   @apply whitespace-nowrap;
 
-
   &:last-child {
     @apply mr-0;
   }
@@ -314,16 +334,16 @@ section {
   @apply text-gray-700;
   @apply flex;
   @apply flex-col;
+}
 
-  &__left {
-    @apply w-full;
-    @apply h-auto;
-    @apply bg-calypso;
-  }
+.main-page__left {
+  @apply w-full;
+  @apply h-auto;
+  @apply bg-calypso;
+}
 
-  &__right {
-    @apply w-full;
-  }
+.main-page__right {
+  @apply w-full;
 }
 
 .main-page__left__box {
@@ -338,7 +358,7 @@ section {
   @apply p-2;
 }
 
-@screen sm {
+@variant sm {
   p {
     @apply text-base;
   }
@@ -346,25 +366,25 @@ section {
   .heading {
     @apply text-2xl;
 
-    &--name {
+    &.heading--name {
       @apply text-3xl;
     }
   }
 }
 
-@screen md {
+@variant md {
   .main-page {
     @apply flex-row;
+  }
 
-    &__left {
-      @apply w-2/5;
-      @apply min-h-screen;
-    }
+  .main-page__left {
+    @apply w-2/5;
+    @apply min-h-screen;
+  }
 
-    &__right {
-      @apply w-3/5;
-      @apply min-h-screen;
-    }
+  .main-page__right {
+    @apply w-3/5;
+    @apply min-h-screen;
   }
 
   .main-page__left__box {
@@ -380,23 +400,23 @@ section {
   .contacts {
     @apply flex-col;
     @apply flex-nowrap;
+  }
 
-    &__item {
-      @apply w-full;
-    }
+  .contacts__item {
+    @apply w-full;
+  }
 
-    &__icon {
-      @apply text-2xl;
-    }
+  .contacts__icon {
+    @apply text-2xl;
+  }
 
-    &__text {
-      @apply ml-3;
-      @apply text-base;
-    }
+  .contacts__text {
+    @apply ml-3;
+    @apply text-base;
   }
 }
 
-@screen lg {
+@variant lg {
   .main-page__left__box,
   .main-page__right__box {
     @apply w-5/6;

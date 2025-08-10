@@ -14,21 +14,23 @@
 
 <script>
 export default {
-  name: 'ProjectCard',
+  name: "ProjectCard",
   props: {
     title: String,
     type: String,
     description: String,
     link: {
       type: String,
-      default: '',
+      default: "",
     },
     tech_stack: String,
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "../style.css";
+
 .project-card {
   @apply shadow-lg;
   @apply rounded;
@@ -49,23 +51,23 @@ export default {
     @apply shadow;
     @apply text-gray-900;
   }
-
-  &__title-wrapper {
-    @apply flex;
-    @apply justify-between;
-  }
-
-  &__link-icon {
-    @apply text-lg;
-  }
-
-  &__description {
-    @apply text-sm;
-  }
-
-  &__tech-stack {
-    @apply text-xs;
-    @apply p-1;
 }
+
+.project-card__title-wrapper {
+  @apply flex;
+  @apply justify-between;
+}
+
+.project-card__link-icon {
+  @apply text-lg;
+}
+
+.project-card__description {
+  @apply text-sm;
+}
+
+.project-card__tech-stack {
+  @apply text-xs;
+  @apply p-1;
 }
 </style>

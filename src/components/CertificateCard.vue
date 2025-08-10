@@ -13,19 +13,21 @@
 
 <script>
 export default {
-  name: 'CertificateCard',
+  name: "CertificateCard",
   props: {
     title: String,
     link: {
       type: String,
-      default: '',
+      default: "",
     },
     issued_at: String,
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "../style.css";
+
 .certificate-card {
   @apply shadow-lg;
   @apply rounded;
@@ -47,23 +49,23 @@ export default {
     @apply text-glacier;
   }
 
-  &__title-wrapper {
-    @apply flex;
-    @apply justify-between;
-  }
-
-  &__link-icon {
-    @apply text-lg;
-  }
-
-  &__issued-at {
-    @apply text-xs;
-    @apply p-1;
-  }
-
-  &--white {
+  &.certificate-card--white {
     @apply bg-porcelain;
     @apply text-calypso;
   }
+}
+
+.certificate-card__title-wrapper {
+  @apply flex;
+  @apply justify-between;
+}
+
+.certificate-card__link-icon {
+  @apply text-lg;
+}
+
+.certificate-card__issued-at {
+  @apply text-xs;
+  @apply p-1;
 }
 </style>
